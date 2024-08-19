@@ -42,17 +42,17 @@ docker-compose up
             "dataPedido": "2024-08-18T12:00:00",
             "status": "PENDENTE",
             "itens": [
-            {
-                "id": 1,
-                "produto": {
-                "id": 1,
-                "nome": "Produto A",
-                "descricao": "Descrição do Produto A",
-                "preco": 10.00,
-                "quantidade": 100
-                },
-                "quantidade": 2
-            }
+                {
+                    "id": 1,
+                    "produto": {
+                        "id": 1,
+                        "nome": "Produto A",
+                        "descricao": "Descrição do Produto A",
+                        "preco": 10.00,
+                        "quantidade": 100
+                    },
+                    "quantidade": 2
+                }
             ]
         }
     ]
@@ -61,7 +61,8 @@ docker-compose up
 #### Buscar um pedido por ID
 - **Endpoint:** `GET /api/pedidos/{id}`
 - **Descrição:** Retorna os detalhes de um pedido específico.
-- **Parâmetros:** id (path): ID do pedido.
+- **Parâmetros:**
+    - id (path): ID do pedido.
 - **Resposta Exemplo:**
     ```json
     {
@@ -70,15 +71,15 @@ docker-compose up
         "status": "PENDENTE",
         "itens": [
             {
-            "id": 1,
-            "produto": {
                 "id": 1,
-                "nome": "Produto A",
-                "descricao": "Descrição do Produto A",
-                "preco": 10.00,
-                "quantidade": 100
-            },
-            "quantidade": 2
+                "produto": {
+                    "id": 1,
+                    "nome": "Produto A",
+                    "descricao": "Descrição do Produto A",
+                    "preco": 10.00,
+                    "quantidade": 100
+                },
+                "quantidade": 2
             }
         ]
     }
@@ -123,7 +124,8 @@ docker-compose up
 #### Atualizar um pedido
 - **Endpoint:** PUT /api/pedidos/{id}
 - **Descrição:** Atualiza um pedido existente.
-- **Parâmetros:** id (path): ID do pedido.
+- **Parâmetros:**
+    - id (path): ID do pedido.
 - **Requisição Exemplo:**
     ```json
     {
@@ -163,14 +165,15 @@ docker-compose up
 #### Deletar um pedido
 - **Endpoint:** DELETE /api/pedidos/{id}
 - **Descrição:** Remove um pedido existente.
-- **Parâmetros:** id (path): ID do pedido.
+- **Parâmetros:**
+    - id (path): ID do pedido.
 - **Resposta Exemplo:** Código de status HTTP 204 No Content.
 #### Alterar status de um pedido
 - **Endpoint:** PUT /api/pedidos/{id}/status
 - **Descrição:** Altera o status de um pedido.
 - **Parâmetros:**
-id (path): ID do pedido.
-status (query): Novo status do pedido. (Ex.: PENDENTE, FINALIZADO)
+    - id (path): ID do pedido.
+    - status (query): Novo status do pedido. (Ex.: PENDENTE, FINALIZADO)
 - **Requisição Exemplo:** PUT /api/pedidos/1/status?status=FINALIZADO
 - **Resposta Exemplo:**
     ```json
@@ -357,7 +360,7 @@ Atualizar as variáveis de ambiente no serviço ECS com as informações do RDS 
         SPRING_DATASOURCE_USERNAME=seu_usuario
         SPRING_DATASOURCE_PASSWORD=sua_senha
     ```
-Para RabbitMQ:
+- Para RabbitMQ:
 
     ```properties
         SPRING_RABBITMQ_HOST=<endpoint-rabbitmq>
